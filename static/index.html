@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>HomePage</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <div class="login">
+  <h1>Registration</h1>
+    <form method="post">
+      <input type="text" name="u" placeholder="Firstname" required="required" />
+        <input type="text" name="u" placeholder="Lastname" required="required" />
+        <input type="email" name="u" placeholder="Email" required="required" />
+          <input type="password" name="p" placeholder="Password" required="required" />
+          <input type="password" name="p" placeholder="Password Confirmation" required="required" />
+        <a href="products.html"><button type="submit" class="btn btn-primary btn-block btn-large">Registration</button></a>
+    </form>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+<script>
+$(document).ready(() =>{
+  $('#form').submit((e)=>{
+    e.preventDefault();
+    $.ajax({
+      url : '/',
+      type : 'post',
+      contentType : 'application/json',
+      data : JSON.stringify($('#form').serializeArray()),
+      success : (response) =>{
+        console.log('successfully got response');
+        console.log(response);
+      }
+    })
+  })
+});
+</script>
+
+</body>
+
+</html>
